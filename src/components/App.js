@@ -8,6 +8,7 @@ import Header from './Header';
 import Courses from './Courses';
 import Teachers from './Teachers';
 import NotFound from './NotFound';
+import Featured from './Featured';
 
 const App = () => (
     <BrowserRouter>
@@ -17,7 +18,11 @@ const App = () => (
                 <Route exact path="/" component={Home} />
                 {/*You use render when you want to pass on props*/}
                 <Route path="/about" render={() => <About title="About" />} />
-                <Route path="/teachers" component={Teachers} />
+                <Route exact path="/teachers" component={Teachers} />
+                <Route
+                    path="/teachers/:topic/:name/"
+                    component={Featured}
+                />
                 <Route path="/courses" component={Courses} />
                 <Route component={NotFound} />
             </Switch>
